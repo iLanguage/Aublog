@@ -17,6 +17,7 @@
 package ca.ilanguage.aublog.service;
 
 
+import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -32,63 +33,74 @@ import android.widget.RemoteViews;
 import ca.ilanguage.aublog.R;
 
 /**
- * This is an example of service that will update its status bar balloon 
+ * This is based on an example of service that will update its status bar balloon 
  * every 5 seconds for a minute.
  * 
+ * It was modified to use an IntentService so that it could be backgrounded. 
+ * 
+ * Usage:
+ *  Intent intent = new Intent(this, NotifyingTranscriptionService.class)
+ *  intent.putExtra(String filepathandnametoupload);
+ *  intent.startservice()
+ * 
  */
-public class NotifyingTranscriptionService extends Service {
+public class NotifyingTranscriptionService extends IntentService {
     
-    // Use a layout id for a unique identifier
+    public NotifyingTranscriptionService(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
+	// Use a layout id for a unique identifier
     private static int MOOD_NOTIFICATIONS = R.layout.status_bar_notifications;
 
-    // variable which controls the notification thread 
-    private ConditionVariable mCondition;
- 
-    @Override
-    public void onCreate() {
-        mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+    
 
-        // Start up the thread running the service.  Note that we create a
-        // separate thread because the service normally runs in the process's
-        // main thread, which we don't want to block.
-        Thread notifyingThread = new Thread(null, mTask, "NotifyingService");
-        mCondition = new ConditionVariable(false);
-        notifyingThread.start();
+	@Override
+	protected void onHandleIntent(Intent arg0) {
+		// TODO Auto-generated method stub
+		
+		/*
+		 * upload logic goes here
+		 * 
+		 * getStringExtra for the filename
+		 * 
+		 */
+		
+        
+		
+	
+        for (int i = 0; i < 4; ++i) {
+            showNotification(R.drawable.stat_happy,  R.string.status_bar_notifications_sending_message);
+            try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            
+            
+        }
+        
+		/*
+		 * Service will auto shut down once onHandleIntent is complete. 
+		 */
+		
+	}
+
+	@Override
+    public void onCreate() {
+		mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
     }
 
     @Override
     public void onDestroy() {
         // Cancel the persistent notification.
         mNM.cancel(MOOD_NOTIFICATIONS);
-        // Stop the thread from generating further notifications
-        mCondition.open();
+       
     }
 
-    private Runnable mTask = new Runnable() {
-        public void run() {
-        	
-        	
-            for (int i = 0; i < 4; ++i) {
-                showNotification(R.drawable.stat_happy,  R.string.status_bar_notifications_sending_message);
-                if (mCondition.block(5 * 1000)) 
-                    break;
-                showNotification(R.drawable.stat_happy,  R.string.status_bar_notifications_sending_message);
-                if (mCondition.block(5 * 1000)) 
-                    break;
-                showNotification(R.drawable.stat_happy,  R.string.status_bar_notifications_sending_message);
-                if (mCondition.block(5 * 1000)) 
-                    break;
-            }
-            // Done with our work...  stop the service!
-            NotifyingTranscriptionService.this.stopSelf();
-        }
-    };
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return mBinder;
-    }
-    
     private void showNotification(int moodId, int textId) {
         // In this sample, we'll use the same text for the ticker and the expanded notification
         CharSequence text = getText(textId);
@@ -113,15 +125,6 @@ public class NotifyingTranscriptionService extends Service {
         mNM.notify(MOOD_NOTIFICATIONS, notification);
     }
 
-    // This is the object that receives interactions from clients.  See
-    // RemoteService for a more complete example.
-    private final IBinder mBinder = new Binder() {
-        @Override
-        protected boolean onTransact(int code, Parcel data, Parcel reply,
-                int flags) throws RemoteException {
-            return super.onTransact(code, data, reply, flags);
-        }
-    };
 
     private NotificationManager mNM;
 }
