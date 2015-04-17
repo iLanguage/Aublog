@@ -3,3 +3,4 @@ AuBlog is a Blogger client which lets you publish and draft blog entries for you
 AuBlog was designed to blog "eyes-free" while biking. It is designed to take dictations while you are somewhere with no internet connection (ie, can't use Google Voice for dictation) and build these dictations towards a new blog entry, or work on many entries concurrently.
 
 AuBlog was designed by iLanguage Lab, an Open Source research lab in Montreal, Canada.
+https://github.com/iLanguage/Aublog/wiki
