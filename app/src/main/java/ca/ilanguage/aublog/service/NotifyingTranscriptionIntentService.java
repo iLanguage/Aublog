@@ -8,17 +8,17 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.mime.HttpMultipartMode;
-import org.apache.http.entity.mime.MultipartEntity;
-import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.entity.mime.content.StringBody;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
+//
+//import org.apache.http.HttpResponse;
+//import org.apache.http.client.HttpClient;
+//import org.apache.http.client.methods.HttpPost;
+//import org.apache.http.entity.mime.HttpMultipartMode;
+//import org.apache.http.entity.mime.MultipartEntity;
+//import org.apache.http.entity.mime.content.FileBody;
+//import org.apache.http.entity.mime.content.StringBody;
+//import org.apache.http.impl.client.DefaultHttpClient;
+//import org.apache.http.protocol.BasicHttpContext;
+//import org.apache.http.protocol.HttpContext;
 
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
@@ -286,7 +286,7 @@ public class NotifyingTranscriptionIntentService extends IntentService {
 		mContentIntent = PendingIntent.getActivity(this, 0, notifyingIntent, 0);
 
 		mNotification = new Notification(mAuBlogIconId, "AuBlog Transcription in progress", System.currentTimeMillis());
-		mNotification.setLatestEventInfo(this, "AuBlog Transcription", "Checking for Wifi connection...", mContentIntent);
+//		mNotification.setLatestEventInfo(this, "AuBlog Transcription", "Checking for Wifi connection...", mContentIntent);
 		mNotification.flags |= Notification.FLAG_AUTO_CANCEL;
 		//startForeground(startId, mNotification);
 		if (mShowNotification){
@@ -332,54 +332,55 @@ public class NotifyingTranscriptionIntentService extends IntentService {
 			 */
 
 			try {
-				HttpClient httpClient = new DefaultHttpClient();
-				HttpContext localContext = new BasicHttpContext();
-				Long uniqueId = System.currentTimeMillis();
-				HttpPost httpPost = new HttpPost(NonPublicConstants.NONPUBLIC_TRANSCRIPTION_WEBSERVICE_URL+NonPublicConstants.NONPUBLIC_TRANSCRIPTION_WEBSERVICE_API_KEY+mAudioFilePath.replace(PreferenceConstants.OUTPUT_AUBLOG_DIRECTORY+"audio/","") );
-
-
-				MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
-
-
-				//				ByteArrayOutputStream bos = new ByteArrayOutputStream();
-				//				bitmap.compress(CompressFormat.JPEG, 100, bos);
-				//				byte[] data = bos.toByteArray();
-				entity.addPart("title", new StringBody("thetitle"));
-				///entity.addPart("returnformat", new StringBody("json"));
-				//entity.addPart("uploaded", new ByteArrayBody(data,"myImage.jpg"));
-				//entity.addPart("aublogInstallID",new StringBody(mAuBlogInstallId));
-				String splitCode=""+mSplitType;
-				entity.addPart("splitCode",new StringBody(splitCode));
-				entity.addPart("file", new FileBody(audioFile));
-				///entity.addPart("photoCaption", new StringBody("thecaption"));
-				httpPost.setEntity(entity);
-
-				mNotification.setLatestEventInfo(this, "AuBlog Transcription", "Connecting to transcription server...", mContentIntent);
-				if (mShowNotification){
-					mNM.notify(NOTIFICATION, mNotification);
-				}
-
-				HttpResponse response = httpClient.execute(httpPost,localContext);
-
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(
-								response.getEntity().getContent(), "UTF-8"));
-
-				String firstLine = reader.readLine();
-				mNotification.setLatestEventInfo(this, "AuBlog Transcription", firstLine, mContentIntent);
-				if (mShowNotification){
-					mNM.notify(NOTIFICATION, mNotification);
-				}
-				reader.readLine();//mFileNameOnServer = reader.readLine().replaceAll(":filename","");
-				mFileNameOnServer = reader.readLine().replaceAll(":path","");
-				/*
-				 * Read response into timecodes
-				 */
-				String line ="";
-				while((line = reader.readLine()) != null){
-					mTimeCodes.add(line);
-				}
-				reader.close();
+				throw new Error("Transcription service disabled");
+//				HttpClient httpClient = new DefaultHttpClient();
+//				HttpContext localContext = new BasicHttpContext();
+//				Long uniqueId = System.currentTimeMillis();
+//				HttpPost httpPost = new HttpPost(NonPublicConstants.NONPUBLIC_TRANSCRIPTION_WEBSERVICE_URL+NonPublicConstants.NONPUBLIC_TRANSCRIPTION_WEBSERVICE_API_KEY+mAudioFilePath.replace(PreferenceConstants.OUTPUT_AUBLOG_DIRECTORY+"audio/","") );
+//
+//
+//				MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
+//
+//
+//				//				ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//				//				bitmap.compress(CompressFormat.JPEG, 100, bos);
+//				//				byte[] data = bos.toByteArray();
+//				entity.addPart("title", new StringBody("thetitle"));
+//				///entity.addPart("returnformat", new StringBody("json"));
+//				//entity.addPart("uploaded", new ByteArrayBody(data,"myImage.jpg"));
+//				//entity.addPart("aublogInstallID",new StringBody(mAuBlogInstallId));
+//				String splitCode=""+mSplitType;
+//				entity.addPart("splitCode",new StringBody(splitCode));
+//				entity.addPart("file", new FileBody(audioFile));
+//				///entity.addPart("photoCaption", new StringBody("thecaption"));
+//				httpPost.setEntity(entity);
+//
+//				mNotification.setLatestEventInfo(this, "AuBlog Transcription", "Connecting to transcription server...", mContentIntent);
+//				if (mShowNotification){
+//					mNM.notify(NOTIFICATION, mNotification);
+//				}
+//
+//				HttpResponse response = httpClient.execute(httpPost,localContext);
+//
+//				BufferedReader reader = new BufferedReader(
+//						new InputStreamReader(
+//								response.getEntity().getContent(), "UTF-8"));
+//
+//				String firstLine = reader.readLine();
+//				mNotification.setLatestEventInfo(this, "AuBlog Transcription", firstLine, mContentIntent);
+//				if (mShowNotification){
+//					mNM.notify(NOTIFICATION, mNotification);
+//				}
+//				reader.readLine();//mFileNameOnServer = reader.readLine().replaceAll(":filename","");
+//				mFileNameOnServer = reader.readLine().replaceAll(":path","");
+//				/*
+//				 * Read response into timecodes
+//				 */
+//				String line ="";
+//				while((line = reader.readLine()) != null){
+//					mTimeCodes.add(line);
+//				}
+//				reader.close();
 				
 				//mAudioResultsFileStatus=mAudioResultsFileStatus+":::"+"File saved on server as "+mFileNameOnServer+" .";
 			} catch (Exception e) {
@@ -427,7 +428,7 @@ public class NotifyingTranscriptionIntentService extends IntentService {
 				// TODO Auto-generated catch block
 				//e.printStackTrace();
 				mNotificationMessage ="Cannot write results to SDCARD";
-				mNotification.setLatestEventInfo(this, "AuBlog Transcription", mNotificationMessage, mContentIntent);
+//				mNotification.setLatestEventInfo(this, "AuBlog Transcription", mNotificationMessage, mContentIntent);
 				if (mShowNotification){
 					mNM.notify(NOTIFICATION, mNotification);
 				}
@@ -437,7 +438,7 @@ public class NotifyingTranscriptionIntentService extends IntentService {
 		}else{
 			//no wifi, and the file is larger than the users settings for upload over mobile network.
 			mNotificationMessage = "Dication was not sent for transcription: no wifi or too long. Check Aublog settings.";
-			mNotification.setLatestEventInfo(this, "AuBlog Transcription", mNotificationMessage, mContentIntent);
+//			mNotification.setLatestEventInfo(this, "AuBlog Transcription", mNotificationMessage, mContentIntent);
 			if (mShowNotification){
 				mNM.notify(NOTIFICATION, mNotification);
 			}
@@ -455,13 +456,13 @@ public class NotifyingTranscriptionIntentService extends IntentService {
 				mTranscription = readAsTranscriptionString(); 
 				i.putExtra(EditBlogEntryActivity.EXTRA_FRESH_TRANSCRIPTION_CONTENTS, mTranscription);
 				mNotificationMessage = "Transcription results received.";
-				mNotification.setLatestEventInfo(this, "AuBlog Transcription", mNotificationMessage, mContentIntent);
+//				mNotification.setLatestEventInfo(this, "AuBlog Transcription", mNotificationMessage, mContentIntent);
 				if (mShowNotification){
 					mNM.notify(NOTIFICATION, mNotification);
 				}
 			}else{
 				mNotificationMessage = "Dication sent for transcription.";
-				mNotification.setLatestEventInfo(this, "AuBlog Transcription", mNotificationMessage, mContentIntent);
+//				mNotification.setLatestEventInfo(this, "AuBlog Transcription", mNotificationMessage, mContentIntent);
 				if (mShowNotification){
 					mNM.notify(NOTIFICATION, mNotification);
 				}
@@ -496,7 +497,7 @@ public class NotifyingTranscriptionIntentService extends IntentService {
 		            (int)System.currentTimeMillis());       // Value
 			
 			mNotificationMessage = "Dication sent for transcription.";
-			mNotification.setLatestEventInfo(this, "AuBlog Transcription", mNotificationMessage, mContentIntent);
+//			mNotification.setLatestEventInfo(this, "AuBlog Transcription", mNotificationMessage, mContentIntent);
 			if (mShowNotification){
 				mNM.notify(NOTIFICATION, mNotification);
 			}

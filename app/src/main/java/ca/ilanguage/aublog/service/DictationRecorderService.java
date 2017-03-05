@@ -137,7 +137,7 @@ public class DictationRecorderService extends Service {
 		mContentIntent = PendingIntent.getActivity(this, 0, i, 0);
 		
 		mNotification = new Notification(mAuBlogIconId, "AuBlog Dictation in progress", System.currentTimeMillis());
-		mNotification.setLatestEventInfo(this, "AuBlog Dictation", "Recording...", mContentIntent);
+//		mNotification.setLatestEventInfo(this, "AuBlog Dictation", "Recording...", mContentIntent);
 		mNotification.flags  |= Notification.FLAG_AUTO_CANCEL;
         mAudioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
 		tracker = GoogleAnalyticsTracker.getInstance();

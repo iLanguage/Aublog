@@ -88,14 +88,4 @@
 			android:id="@+id/ticker"
 			android:singleLine="true" android:layout_gravity="bottom|left"/>
 	</LinearLayout>
-
-	<ImageView
-       	android:id="@+id/extrasNew"
-       	android:src="@drawable/ui_new" 
-       	android:layout_height="wrap_content" 
-       	android:layout_width="wrap_content" 
-       	android:paddingLeft="280dp"
-       	android:paddingTop="160dp"
-       	android:visibility="invisible"/>
-	
 </FrameLayout> 
