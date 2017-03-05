@@ -1,12 +1,15 @@
 # private constants #
 NonPublicConstants.java
 assets/analytics_website_script.html
+local.properties
 
-
+.idea
 .project
 .settings
 .classpath
+.gradle
 
+build
 bin
 gen
 
@@ -28,7 +31,7 @@ target
 *.dmg
 *.gz
 *.iso
-*.jar
+#*.jar
 *.rar
 *.tar
 *.zip
@@ -45,3 +48,4 @@ target
 ehthumbs.db
 Icon?
 Thumbs.db
+
