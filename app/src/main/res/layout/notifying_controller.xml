@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2007 The Android Open Source Project Licensed under the 
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2007 The Android Open Source Project Licensed under the
 	Apache License, Version 2.0 (the "License"); you may not use this file except 
 	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
 	Unless required by applicable law or agreed to in writing, software distributed 
@@ -11,32 +10,44 @@
 	Java code com.android.sdk.app.LocalSerice.java. -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:padding="4dip" android:gravity="center_horizontal"
-	android:layout_width="match_parent" android:layout_height="match_parent">
-
-	
-
-
-	<ImageView android:id="@+id/mainMenuTitle" android:src="@drawable/title"
-		android:adjustViewBounds="true" android:layout_width="336dp"
-		android:layout_height="153dp" android:layout_gravity="center_horizontal"
-		android:layout_marginTop="0dp" />
-
-	<LinearLayout android:layout_width="fill_parent"
-		android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
-		android:orientation="vertical" android:gravity="bottom" android:id="@+id/mainSectionMenu">
+    android:orientation="vertical"
+    android:padding="4dip"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
-		<Button android:id="@+id/notifyStart" 
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:text="Stop Recording">
-			<requestFocus />
-		</Button>
+    <ImageView
+        android:id="@+id/mainMenuTitle"
+        android:src="@drawable/title"
+        android:adjustViewBounds="true"
+        android:layout_width="336dp"
+        android:layout_height="153dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="0dp" />
 
-		<Button android:id="@+id/notifyStop" 
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:text="Open Blog Entry">
-		</Button>
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:id="@+id/mainSectionMenu">
 
-	</LinearLayout>
+
+        <Button
+            android:id="@+id/notifyStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop Recording">
+
+            <requestFocus />
+        </Button>
+
+        <Button
+            android:id="@+id/notifyStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Blog Entry"></Button>
+
+    </LinearLayout>
 </LinearLayout>

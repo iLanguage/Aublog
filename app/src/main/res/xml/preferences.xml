@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2008 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,209 +13,197 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-        xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<PreferenceCategory
-            android:title="@string/preference_app_settings">
-            
-       <CheckBoxPreference
-       			android:key="enableSound"
-                android:title="@string/preference_enable_sound"
-                android:summaryOn="@string/preference_enable_sound_summary"
-                android:summaryOff="@string/preference_enable_sound_summary"
-                android:defaultValue="true"
-                android:persistent="true"
-                />
-         <CheckBoxPreference
-       			android:key="useBluetoothAudio"
-                android:title="@string/preference_enable_bluetooth_audio"
-                android:summaryOn="@string/preference_enable_bluetooth_audio_summary"
-                android:summaryOff="@string/preference_enable_bluetooth_audio_summary"
-                android:defaultValue="false"
-                android:persistent="true"
-                />
-         <CheckBoxPreference
-       			android:key="useEarPhonesAudio"
-                android:title="@string/preference_enable_earphones_audio"
-                android:summaryOn="@string/preference_enable_earphones_audio_summary"
-                android:summaryOff="@string/preference_enable_earphones_audio_summary"
-                android:defaultValue="true"
-                android:persistent="true"
-                android:enabled="false"
-                android:selectable="false"
-                />
-         <CheckBoxPreference
-       			android:key="usePhoneEarPieceAudio"
-                android:title="@string/preference_enable_phone_earpiece_audio"
-                android:summaryOn="@string/preference_enable_phone_earpiece_audio_summary"
-                android:summaryOff="@string/preference_enable_phone_earpiece_audio_summary"
-                android:defaultValue="false"
-                android:persistent="true"
-                />
+    <PreferenceCategory android:title="@string/preference_app_settings">
 
-		<PreferenceScreen
-				android:key="controlConfigScreen"
-                android:title="@string/preference_configure_controls"
-                xmlns:replica="http://schemas.android.com/apk/res/ca.ilanguage.aublog">
-			<CheckBoxPreference
-       			android:key="enableClickAttack"
+        <CheckBoxPreference
+            android:key="enableSound"
+            android:title="@string/preference_enable_sound"
+            android:summaryOn="@string/preference_enable_sound_summary"
+            android:summaryOff="@string/preference_enable_sound_summary"
+            android:defaultValue="true"
+            android:persistent="true" />
+        <CheckBoxPreference
+            android:key="useBluetoothAudio"
+            android:title="@string/preference_enable_bluetooth_audio"
+            android:summaryOn="@string/preference_enable_bluetooth_audio_summary"
+            android:summaryOff="@string/preference_enable_bluetooth_audio_summary"
+            android:defaultValue="false"
+            android:persistent="true" />
+        <CheckBoxPreference
+            android:key="useEarPhonesAudio"
+            android:title="@string/preference_enable_earphones_audio"
+            android:summaryOn="@string/preference_enable_earphones_audio_summary"
+            android:summaryOff="@string/preference_enable_earphones_audio_summary"
+            android:defaultValue="true"
+            android:persistent="true"
+            android:enabled="false"
+            android:selectable="false" />
+        <CheckBoxPreference
+            android:key="usePhoneEarPieceAudio"
+            android:title="@string/preference_enable_phone_earpiece_audio"
+            android:summaryOn="@string/preference_enable_phone_earpiece_audio_summary"
+            android:summaryOff="@string/preference_enable_phone_earpiece_audio_summary"
+            android:defaultValue="false"
+            android:persistent="true" />
+
+        <PreferenceScreen android:key="controlConfigScreen"
+            android:title="@string/preference_configure_controls"
+            xmlns:replica="http://schemas.android.com/apk/res/ca.ilanguage.aublog">
+            <CheckBoxPreference
+                android:key="enableClickAttack"
                 android:title="@string/preference_enable_blogger_account"
                 android:summaryOn="@string/preference_enable_blogger_account_summary"
                 android:summaryOff="@string/preference_enable_blogger_account_summary"
                 android:defaultValue="true"
-                android:persistent="true"
-                />
-    		<EditTextPreference 
-    			android:title="Blogger Account Name"
-				android:key="bloggerAccount" 
-				android:summary="Enter Your Blogger account (generally your email address)" android:dialogTitle="Enter Your Blogger account"
-				android:defaultValue=""
-				android:persistent="true"/>
-			
-			<EditTextPreference 
-				android:title="Blogger Account Password"
-				android:key="bloggerPassword"  android:password="true"
-				android:summary="Enter Your Password" android:dialogTitle="Enter Your password"
-				android:defaultValue=""
-				android:persistent="true"/>
-			
-            <EditTextPreference 
-				android:title="Blog Signature"
-				android:key="blogSignature"  
-				android:summary="You can add a signature if you want" android:dialogTitle="Enter Your blog signature"
-				android:defaultValue="Posted using my Android"
-				android:persistent="true"/>
-			<EditTextPreference 
-				android:title="Center Tree on Node"
-				android:key="lastSelectedDraftNode"  
-				android:defaultValue="1"
-				android:persistent="true"/>
-        </PreferenceScreen>
-            
-                
-    </PreferenceCategory>
-    
-     <PreferenceCategory
-            android:title="@string/preference_manage_data">
-            
+                android:persistent="true" />
+            <EditTextPreference
+                android:title="Blogger Account Name"
+                android:key="bloggerAccount"
+                android:summary="Enter Your Blogger account (generally your email address)"
+                android:dialogTitle="Enter Your Blogger account"
+                android:defaultValue=""
+                android:persistent="true" />
 
-                
+            <EditTextPreference
+                android:title="Blogger Account Password"
+                android:key="bloggerPassword"
+                android:password="true"
+                android:summary="Enter Your Password"
+                android:dialogTitle="Enter Your password"
+                android:defaultValue=""
+                android:persistent="true" />
+
+            <EditTextPreference
+                android:title="Blog Signature"
+                android:key="blogSignature"
+                android:summary="You can add a signature if you want"
+                android:dialogTitle="Enter Your blog signature"
+                android:defaultValue="Posted using my Android"
+                android:persistent="true" />
+            <EditTextPreference
+                android:title="Center Tree on Node"
+                android:key="lastSelectedDraftNode"
+                android:defaultValue="1"
+                android:persistent="true" />
+        </PreferenceScreen>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/preference_manage_data">
+
+
         <Preference
-                android:title="@string/preference_email_data"
-				android:key="emailDraftsTree">
-				
+            android:title="@string/preference_email_data"
+            android:key="emailDraftsTree">
+
         </Preference>
-        
-         <CheckBoxPreference
-       			android:key="fileManagerInstalled"
-                android:title="File Manager Installed"
-                android:summaryOff="A file manager wasn't detected, a file manager is needed to view your exported files on your mobile device."
-                android:summaryOn=""
-                android:defaultValue="false"
-                android:persistent="true"
-                />
-        
-        <PreferenceScreen
-        		android:key="openJsonTxt"
-                android:title="@string/preference_export_data"
-                android:enabled="false"
-	            android:selectable="false">
-            <intent android:action="org.openintents.action.PICK_FILE"
-                    android:data="file:///sdcard/AuBlog/aublog_exported_drafts_json_format.txt" />
-        </PreferenceScreen>
-        
-        <PreferenceScreen
-        		android:key="openAudioDir"
-                android:title="@string/preference_view_recorded_audio_data"
-                android:enabled="false"
-	            android:selectable="false">
-            <intent android:action="org.openintents.action.PICK_FILE"
-                    android:data="file:///sdcard/AuBlog/Audio" />
-        </PreferenceScreen>
-                <CheckBoxPreference
-       			android:key="uploadWaitForWifi"
-                android:title="Upload only over Wifi"
-                android:summaryOff="Upload for transcription only when Wifi is active. You should turn this on if your cell phone plan has less than 1GB data transfer per month."
-                android:summaryOn="Uploading only over wifi.You can configure exceptions for small transcriptions below."
-                android:defaultValue="true"
-                android:persistent="true"
-                />
-       <ca.ilanguage.aublog.preferences.IntegerListPreference
-		        android:key="maxUploadOnMobleNetwork"
-		        android:title="Max upload when not on Wifi"
-		        android:summary="You can configure AuBlog to send only small audio files for transcription."
-		        android:entries="@array/max_upload_on_moblie_network_options"
-		        android:entryValues="@array/max_upload_on_moblie_network_values"
-		        android:defaultValue="2000000" />
-		        
-       <ca.ilanguage.aublog.preferences.YesNoDialogPreference
-       			android:key="erasegame"
-                android:title="@string/preference_erase_save_game"
-                android:dialogMessage="@string/preference_erase_save_game_dialog" 
-                android:dialogTitle="@string/preference_erase_save_game_dialog_title"
-                android:negativeButtonText="@string/preference_erase_save_game_dialog_cancel"
-                android:positiveButtonText="@string/preference_erase_save_game_dialog_ok"
-                />
+
         <CheckBoxPreference
-       			android:key="enableStats"
-                android:title="@string/preference_enable_statistics"
-                android:summaryOn="@string/preference_enable_statistics_summary"
-                android:summaryOff="@string/preference_enable_statistics_summary"
-                android:defaultValue="true"
-                android:persistent="true"
-                />
-                    
-    </PreferenceCategory>
-             
-    
-    <PreferenceCategory
-            android:title="@string/preference_about">
+            android:key="fileManagerInstalled"
+            android:title="File Manager Installed"
+            android:summaryOff="A file manager wasn't detected, a file manager is needed to view your exported files on your mobile device."
+            android:summaryOn=""
+            android:defaultValue="false"
+            android:persistent="true" />
 
         <PreferenceScreen
-                android:title="@string/preference_visit_site">
+            android:key="openJsonTxt"
+            android:title="@string/preference_export_data"
+            android:enabled="false"
+            android:selectable="false">
+            <intent
+                android:action="org.openintents.action.PICK_FILE"
+                android:data="file:///sdcard/AuBlog/aublog_exported_drafts_json_format.txt" />
+        </PreferenceScreen>
 
-            <intent android:action="android.intent.action.VIEW"
-                    android:data="http://aublog.net" />
+        <PreferenceScreen
+            android:key="openAudioDir"
+            android:title="@string/preference_view_recorded_audio_data"
+            android:enabled="false"
+            android:selectable="false">
+            <intent
+                android:action="org.openintents.action.PICK_FILE"
+                android:data="file:///sdcard/AuBlog/Audio" />
+        </PreferenceScreen>
+        <CheckBoxPreference
+            android:key="uploadWaitForWifi"
+            android:title="Upload only over Wifi"
+            android:summaryOff="Upload for transcription only when Wifi is active. You should turn this on if your cell phone plan has less than 1GB data transfer per month."
+            android:summaryOn="Uploading only over wifi.You can configure exceptions for small transcriptions below."
+            android:defaultValue="true"
+            android:persistent="true" />
+        <ca.ilanguage.aublog.preferences.IntegerListPreference
+            android:key="maxUploadOnMobleNetwork"
+            android:title="Max upload when not on Wifi"
+            android:summary="You can configure AuBlog to send only small audio files for transcription."
+            android:entries="@array/max_upload_on_moblie_network_options"
+            android:entryValues="@array/max_upload_on_moblie_network_values"
+            android:defaultValue="2000000" />
+
+        <ca.ilanguage.aublog.preferences.YesNoDialogPreference
+            android:key="erasegame"
+            android:title="@string/preference_erase_save_game"
+            android:dialogMessage="@string/preference_erase_save_game_dialog"
+            android:dialogTitle="@string/preference_erase_save_game_dialog_title"
+            android:negativeButtonText="@string/preference_erase_save_game_dialog_cancel"
+            android:positiveButtonText="@string/preference_erase_save_game_dialog_ok" />
+        <CheckBoxPreference
+            android:key="enableStats"
+            android:title="@string/preference_enable_statistics"
+            android:summaryOn="@string/preference_enable_statistics_summary"
+            android:summaryOff="@string/preference_enable_statistics_summary"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="@string/preference_about">
+
+        <PreferenceScreen android:title="@string/preference_visit_site">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://aublog.net" />
 
         </PreferenceScreen>
-        
-        <PreferenceScreen
-                android:title="@string/preference_misc">
-            
+
+        <PreferenceScreen android:title="@string/preference_misc">
+
             <CheckBoxPreference
-       			android:key="enableDebug"
+                android:key="enableDebug"
                 android:title="@string/preference_enable_debug"
                 android:summaryOn="@string/preference_enable_debug_summary"
                 android:summaryOff="@string/preference_enable_debug_summary"
                 android:defaultValue="false"
-                android:persistent="true"
-                />
-                
-	        <Preference
-	                android:title="@string/preference_about_title"
-	                android:summary="@string/preference_about_summary"
-	                android:enabled="false"
-	                android:selectable="false" />
-	                
-	                <!-- preference summaries are only 2 lines long, the full summaries below will only appear in horizontal mode or on tablets -->
-	        <PreferenceScreen
-	                android:title="@string/preference_thanks_title"
-	                android:summary="@string/preference_thanks_summary"
-	                 >
-	                 <!-- add share intent -->
-	                 <intent 
-	                 	android:action="android.intent.action.VIEW"
-                    	android:data="https://market.android.com/details?id=ca.ilanguage.aublog" />
-                    
-	        </PreferenceScreen>
-	                
-	        <Preference
-	                android:title="@string/preference_licence_title"
-	                android:summary="@string/preference_licence_summary"
-	                android:enabled="false"
-	                android:selectable="false" />
-		</PreferenceScreen>
+                android:persistent="true" />
+
+            <Preference
+                android:title="@string/preference_about_title"
+                android:summary="@string/preference_about_summary"
+                android:enabled="false"
+                android:selectable="false" />
+
+            <!-- preference summaries are only 2 lines long, the full summaries below will only appear in horizontal mode or on tablets -->
+            <PreferenceScreen
+                android:title="@string/preference_thanks_title"
+                android:summary="@string/preference_thanks_summary">
+                <!-- add share intent -->
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="https://market.android.com/details?id=ca.ilanguage.aublog" />
+
+            </PreferenceScreen>
+
+            <Preference
+                android:title="@string/preference_licence_title"
+                android:summary="@string/preference_licence_summary"
+                android:enabled="false"
+                android:selectable="false" />
+        </PreferenceScreen>
 
     </PreferenceCategory>
 

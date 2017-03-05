@@ -22,7 +22,7 @@
 <script type="text/javascript">
 
 </script>
-<!-- <p>Click <a href="#" class="add">this link to insert content</a> from anywhere in the page or 
+<!-- <p>Click <a href="#" class="add">this link to insert content</a> from anywhere in the page or
 <a href="#" class="toggle">this one to <span>remove markItUp!</span></a></p>-->
 <p>
 <span id="buttonArea">
@@ -32,29 +32,27 @@
 <input type="button"  id="recordButton" value="Record Dictation" onClick="startStopRecordingController()" />
 </span>
 <script type="text/javascript">
+function displayPlayButton() {
+  var playButtn = document.createElement("input");
+  playButtn.setAttribute("type", "button");
+  playButtn.setAttribute("id", "playButton");
+  playButtn.setAttribute("value", "Play");
+  playButtn.setAttribute("onClick", "playPauseAudioController()");
+  document.getElementById("buttonArea").appendChild(playButtn);
+}
 
-    function displayPlayButton(){
-    	var playButtn = document.createElement("input");
-    	playButtn.setAttribute("type","button");
-    	playButtn.setAttribute("id","playButton");
-    	playButtn.setAttribute("value","Play");
-    	playButtn.setAttribute("onClick","playPauseAudioController()");
-    	document.getElementById("buttonArea").appendChild(playButtn);
-    }
-    function playPauseAudioController(){
-    	if(document.getElementById('playButton').value=="Pause"){
-    		alert("hi");
-    		//pause
-    		//document.getElementById('playButton').value=Android.playOrPauseAudio();
-    	}else{
-    		alert("there");
-    		//play
-    		//document.getElementById('recordButton').value=Android.playOrPauseAudio();
-    	}
-    }
-    displayPlayButton();
-    		
-    
+function playPauseAudioController() {
+  if (document.getElementById('playButton').value == "Pause") {
+    alert("hi");
+    //pause
+    //document.getElementById('playButton').value=Android.playOrPauseAudio();
+  } else {
+    alert("there");
+    //play
+    //document.getElementById('recordButton').value=Android.playOrPauseAudio();
+  }
+}
+displayPlayButton();
 </script>
 
 

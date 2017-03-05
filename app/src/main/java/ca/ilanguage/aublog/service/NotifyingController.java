@@ -39,23 +39,23 @@ import ca.ilanguage.aublog.ui.EditBlogEntryActivity;
 
 
 /**
- * Controller to start and stop a service. 
-
-Demonstrates how to pass information to the service via extras
-
-Clicking on the notification brings user here, this is where user can do extra actions, like schedule uplaods for later, import transcriptions into aublog?
-TODO button to stop recording. (sent from dictationrecorderservice)
-add buttons
-Turn on wifi
-Open aublog settings
-Retry xxx audio file (add files to cue)
+ * Controller to start and stop a service.
+ * <p>
+ * Demonstrates how to pass information to the service via extras
+ * <p>
+ * Clicking on the notification brings user here, this is where user can do extra actions, like schedule uplaods for later, import transcriptions into aublog?
+ * TODO button to stop recording. (sent from dictationrecorderservice)
+ * add buttons
+ * Turn on wifi
+ * Open aublog settings
+ * Retry xxx audio file (add files to cue)
  */
 public class NotifyingController extends Activity {
-	private Uri mUri;
-	GoogleAnalyticsTracker tracker;
-	private String mAuBlogInstallId;
-	
-	
+    private Uri mUri;
+    GoogleAnalyticsTracker tracker;
+    private String mAuBlogInstallId;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,29 +68,29 @@ public class NotifyingController extends Activity {
         button = (Button) findViewById(R.id.notifyStop);
         button.setVisibility(Button.INVISIBLE);
         button.setOnClickListener(mStopListener);
-        
+
         tracker = GoogleAnalyticsTracker.getInstance();
 
-	    // Start the tracker in manual dispatch mode...
-	    tracker.start(NonPublicConstants.NONPUBLIC_GOOGLE_ANALYTICS_UA_ACCOUNT_CODE, 20, this);
-	    SharedPreferences prefs = getSharedPreferences(PreferenceConstants.PREFERENCE_NAME, MODE_PRIVATE);
-	    mAuBlogInstallId = prefs.getString(PreferenceConstants.AUBLOG_INSTALL_ID, "0");
-		
-	    tracker.trackEvent(
-				mAuBlogInstallId,  // Category
-	            "Notifications",  // Action
-	            "User found the notification controller by clicking on the recording notification. "+System.currentTimeMillis() +" : "+mAuBlogInstallId, // Label
-	            (int)System.currentTimeMillis());       // Value
-		
+        // Start the tracker in manual dispatch mode...
+        tracker.start(NonPublicConstants.NONPUBLIC_GOOGLE_ANALYTICS_UA_ACCOUNT_CODE, 20, this);
+        SharedPreferences prefs = getSharedPreferences(PreferenceConstants.PREFERENCE_NAME, MODE_PRIVATE);
+        mAuBlogInstallId = prefs.getString(PreferenceConstants.AUBLOG_INSTALL_ID, "0");
+
+        tracker.trackEvent(
+                mAuBlogInstallId,  // Category
+                "Notifications",  // Action
+                "User found the notification controller by clicking on the recording notification. " + System.currentTimeMillis() + " : " + mAuBlogInstallId, // Label
+                (int) System.currentTimeMillis());       // Value
+
 
     }
 
     @Override
-	protected void onDestroy() {
-    	String release = Build.VERSION.RELEASE;
-    	tracker.stop();
-		super.onDestroy();
-		/*
+    protected void onDestroy() {
+        String release = Build.VERSION.RELEASE;
+        tracker.stop();
+        super.onDestroy();
+        /*
 		if(release.equals("2.2")){
 	    	//this does not show a force close, but does sucessfully allow the user to disconnect the bluetooth after they close aublog. 
 	    	//if they have android 2.2 and they disconnect the bluetooth without quitting aublog then the device will reboot.
@@ -98,17 +98,17 @@ public class NotifyingController extends Activity {
 	    }else{
 	    	//do nothing, bluetooth issue is fixed in 2.2.1 and above
 	    }*/
-	}
+    }
 
-	private OnClickListener mStartListener = new OnClickListener() {
+    private OnClickListener mStartListener = new OnClickListener() {
         public void onClick(View v) {
-        	Intent intent = new Intent(NotifyingController.this, DictationRecorderService.class);
-        	stopService(intent);
-    		tracker.trackEvent(
-    				mAuBlogInstallId,  // Category
-    	            "Dictation stopped",  // Action
-    	            "User clicked Stop Dictation  in Notifying controller : "+System.currentTimeMillis() +" : "+mAuBlogInstallId, // Label
-    	            (int)System.currentTimeMillis());       // Value
+            Intent intent = new Intent(NotifyingController.this, DictationRecorderService.class);
+            stopService(intent);
+            tracker.trackEvent(
+                    mAuBlogInstallId,  // Category
+                    "Dictation stopped",  // Action
+                    "User clicked Stop Dictation  in Notifying controller : " + System.currentTimeMillis() + " : " + mAuBlogInstallId, // Label
+                    (int) System.currentTimeMillis());       // Value
         }
     };
 
@@ -117,7 +117,7 @@ public class NotifyingController extends Activity {
 
             Intent i = new Intent(EditBlogEntryActivity.DICTATION_STILL_RECORDING_INTENT);
             i.setData(mUri);
-    		sendBroadcast(i);
+            sendBroadcast(i);
         }
     };
 }
